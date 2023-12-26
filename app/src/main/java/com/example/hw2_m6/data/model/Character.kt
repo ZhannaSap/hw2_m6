@@ -1,5 +1,6 @@
 package com.example.hw2_m6.data.model
 
+import com.example.hw2_m6.ui.utils.Status
 import java.io.Serializable
 
 data class BaseResponse<T>(

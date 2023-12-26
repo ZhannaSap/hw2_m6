@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.hw2_m6.R
 import com.example.hw2_m6.databinding.ItemCaharacterBinding
 import com.example.hw2_m6.data.model.Character
+import com.example.hw2_m6.ui.utils.Status
 
 class CharacterAdapter(
     private val onClick: (character: Character) -> Unit,
@@ -56,9 +57,9 @@ class CharacterAdapter(
                 }
 
                 when (character.status){
-                    "Alive" -> imgCircleStatus.setBackgroundResource(R.drawable.circle_green)
-                    "Dead" -> imgCircleStatus.setBackgroundResource(R.drawable.circle_red)
-                    "unknown" -> imgCircleStatus.setBackgroundResource(R.drawable.circle)
+                    Status.ALIVE.provider -> imgCircleStatus.setBackgroundResource(R.drawable.circle_green)
+                    Status.DEAD.provider -> imgCircleStatus.setBackgroundResource(R.drawable.circle_red)
+                    Status.UNKNOWN.provider -> imgCircleStatus.setBackgroundResource(R.drawable.circle)
                 }
             }
         }

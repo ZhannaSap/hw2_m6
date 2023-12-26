@@ -2,6 +2,10 @@ package com.example.hw2_m6.di
 
 import com.example.hw2_m6.BuildConfig
 import com.example.hw2_m6.data.AppApiService
+import com.example.hw2_m6.ui.utils.CharacterStatusDeserializer
+import com.example.hw2_m6.ui.utils.Status
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,10 +27,11 @@ object AppModule {
     @Singleton
     @Provides
     fun  provideRetrofit(
+        gson: Gson,
         okHttpClient: OkHttpClient
     ) : Retrofit{
         return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
@@ -58,6 +63,14 @@ object AppModule {
         retrofit: Retrofit
     ):AppApiService{
         return retrofit.create(AppApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGson(): Gson {
+        return GsonBuilder()
+            .registerTypeAdapter(Status::class.java, CharacterStatusDeserializer())
+            .create()
     }
 
 }

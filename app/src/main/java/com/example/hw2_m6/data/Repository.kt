@@ -53,8 +53,3 @@ class Repository @Inject constructor(private val api: AppApiService) {
         return characterLv
     }
 }
-
-/*  if (response.isSuccessful) {
-                    response.body()?.let {
-                        list.postValue(it.results)
-                    }*/
