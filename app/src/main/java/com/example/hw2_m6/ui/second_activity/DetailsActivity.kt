@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.hw2_m6.R
 import com.example.hw2_m6.databinding.ActivityDetailsBinding
 import com.example.hw2_m6.data.model.Character
 import com.example.hw2_m6.ui.utils.CharacterKeys
@@ -43,5 +44,11 @@ class DetailsActivity : AppCompatActivity() {
             tvSpecies.text = it.species
             tvStatus.text = it.status
             Glide.with(imageCharacter).load(it.image).into(imageCharacter)
+
+        when (it.status){
+            "Alive" -> circleStatus.setBackgroundResource(R.drawable.circle_green)
+            "Dead" -> circleStatus.setBackgroundResource(R.drawable.circle_red)
+            "unknown" -> circleStatus.setBackgroundResource(R.drawable.circle)
+        }
     }
 }

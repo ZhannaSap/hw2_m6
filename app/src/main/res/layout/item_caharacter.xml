@@ -28,12 +28,12 @@
         app:layout_constraintStart_toEndOf="@id/image_character"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/img_circle_status"
         android:layout_width="6dp"
         android:layout_height="6dp"
-        android:src="@color/white"
-        android:layout_marginTop="4dp"
+        android:background="@drawable/circle"
+        android:layout_marginTop="6dp"
         android:layout_marginStart="12dp"
         app:layout_constraintStart_toEndOf="@id/image_character"
         app:layout_constraintTop_toBottomOf="@id/tv_character_name"
@@ -49,7 +49,7 @@
         android:text="Alive"
         android:textColor="@color/white"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@id/circle_status"
+        app:layout_constraintStart_toEndOf="@id/img_circle_status"
         app:layout_constraintTop_toBottomOf="@id/tv_character_name" />
 
     <TextView

@@ -55,11 +55,11 @@ class CharacterAdapter(
                     onClick(character)
                 }
 
-               /* when (character.status){
-                    "Alive" -> imgCircleStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.green))
-                    "Dead" -> imgCircleStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
-                    "unknown" -> imgCircleStatus.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
-                }*/
+                when (character.status){
+                    "Alive" -> imgCircleStatus.setBackgroundResource(R.drawable.circle_green)
+                    "Dead" -> imgCircleStatus.setBackgroundResource(R.drawable.circle_red)
+                    "unknown" -> imgCircleStatus.setBackgroundResource(R.drawable.circle)
+                }
             }
         }
     }
