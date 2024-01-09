@@ -47,6 +47,7 @@ object AppModule {
             .readTimeout(20, TimeUnit.SECONDS)
             .connectTimeout(20, TimeUnit.SECONDS)
             .callTimeout(20, TimeUnit.SECONDS)
+            .addInterceptor(interceptor)
             .build()
     }
 

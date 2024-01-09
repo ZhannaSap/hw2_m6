@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.main_activity.CharacterActivity">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       tools:listitem="@layout/item_caharacter"
-       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-       android:id="@+id/rv"/>
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_caharacter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,39 +9,62 @@
     android:orientation="vertical"
     tools:context=".ui.second_activity.SecondActivity">
 
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
-        android:layout_gravity="center"
         android:id="@+id/image_character"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:background="@color/black" />
+        android:layout_marginTop="180dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_character_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:clickable="true"
         android:focusable="true"
         android:text="Jerry Smith"
-        android:layout_marginTop="12dp"
         android:textColor="@color/white"
         android:textSize="28sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_character" />
 
     <LinearLayout
-        android:layout_marginVertical="12dp"
+        android:id="@+id/linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_character_name">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circle_status"
+        <ImageView
+            android:id="@+id/img_circle_status"
             android:layout_width="6dp"
             android:layout_height="6dp"
-            android:layout_gravity="center"
-            android:src="@color/white"
-            android:layout_marginHorizontal="8dp"/>
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/circle"
+            app:layout_constraintStart_toEndOf="@id/image_character"
+            app:layout_constraintTop_toBottomOf="@id/tv_character_name"
+            app:layout_constraintTop_toTopOf="@id/tv_status" />
 
         <TextView
             android:id="@+id/tv_status"
@@ -82,7 +105,10 @@
         android:layout_marginTop="8dp"
         android:text="Last known location:"
         android:textColor="#919092"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
 
     <TextView
         android:id="@+id/tv_location_info"
@@ -92,7 +118,10 @@
         android:focusable="true"
         android:text="Earth"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location" />
 
     <TextView
         android:id="@+id/tv_series"
@@ -101,7 +130,10 @@
         android:layout_marginTop="12dp"
         android:text="Origin:"
         android:textColor="#919092"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_info" />
 
     <TextView
         android:id="@+id/tv_series_info"
@@ -111,7 +143,10 @@
         android:focusable="true"
         android:text="Earth"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_series" />
 
     <TextView
         android:id="@+id/tv_origin"
@@ -120,7 +155,10 @@
         android:layout_marginTop="12dp"
         android:text="First seen in:"
         android:textColor="#919092"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_series_info" />
 
     <TextView
         android:id="@+id/tv_origin_info"
@@ -130,6 +168,9 @@
         android:focusable="true"
         android:text="episode 9"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_origin" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
