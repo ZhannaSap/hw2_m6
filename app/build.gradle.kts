@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+/*    kotlin("kapt")
+    id("com.google.dagger.hilt.android")*/
 }
 
 android {
@@ -67,17 +67,24 @@ dependencies {
     val okHttpClientVersion = "4.12.0"
     implementation("com.squareup.okhttp3:okhttp:$okHttpClientVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpClientVersion")
-
-    /*di hilt*/
+/*
+    *//*di hilt*//*
     implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")*/
 
     /*LiveData*/
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
+
     /*Glide*/
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     /*Circle Image*/
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    /*Coroutines*/
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
+    /*DI Koin*/
+    implementation ("io.insert-koin:koin-android:3.5.0")
 }

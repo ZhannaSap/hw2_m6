@@ -1,18 +1,15 @@
 package com.example.hw2_m6.ui.main_activity.adpter
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
 import com.example.hw2_m6.R
-import com.example.hw2_m6.databinding.ItemCaharacterBinding
 import com.example.hw2_m6.data.model.Character
+import com.example.hw2_m6.databinding.ItemCaharacterBinding
 import com.example.hw2_m6.ui.utils.Status
 
 class CharacterAdapter(
@@ -39,8 +36,7 @@ class CharacterAdapter(
 class CharacterViewHolder(
     private val binding: ItemCaharacterBinding,
     private val onClick: (character: Character) -> Unit
-) :
-    RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
 
     @SuppressLint("ResourceAsColor")
     fun bind(character: Character) {

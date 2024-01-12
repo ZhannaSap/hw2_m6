@@ -1,18 +1,23 @@
 package com.example.hw2_m6.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.hw2_m6.data.model.BaseResponse
+import androidx.lifecycle.liveData
 import com.example.hw2_m6.data.model.Character
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import javax.inject.Inject
+import com.example.hw2_m6.ui.base.BaseRepository
+import kotlinx.coroutines.Dispatchers
 
-class Repository @Inject constructor(private val api: AppApiService) {
-    fun getCharacters(): MutableLiveData<Resource<List<Character>>> {
-        val characters = MutableLiveData<Resource<List<Character>>>()
+
+class Repository(private val api: AppApiService) : BaseRepository(api) {
+    fun getCharacters(): LiveData<Resource<List<Character>>> = apiRequest {
+        api.getCharacters().body()?.results ?: emptyList()
+    }
+
+
+    fun getCharacter(id: Int): LiveData<Resource<Character>> = apiRequest {
+        api.getCharacter(id).body()!!
+    }
+}
+/* val characters = MutableLiveData<Resource<List<Character>>>()
         characters.postValue(Resource.Loading())
         api.getCharacters().enqueue(object : Callback<BaseResponse<Character>> {
             override fun onResponse(
@@ -32,11 +37,9 @@ class Repository @Inject constructor(private val api: AppApiService) {
             }
 
         })
-        return characters
-    }
+        return characters*/
 
-    fun getCharacter(id: Int): LiveData<Resource<Character>> {
-        val characterLv = MutableLiveData<Resource<Character>>()
+/* val characterLv = MutableLiveData<Resource<Character>>()
         characterLv.postValue(Resource.Loading())
         api.getCharacter(id).enqueue(object : Callback<Character> {
             override fun onResponse(
@@ -49,10 +52,8 @@ class Repository @Inject constructor(private val api: AppApiService) {
             }
 
             override fun onFailure(call: Call<Character>, t: Throwable) {
-                characterLv.postValue(Resource.Error(t.localizedMessage?: "Unknowm error"))
+                characterLv.postValue(Resource.Error(t.localizedMessage ?: "Unknowm error"))
                 Log.e("ololo", t.message.toString())
             }
         })
-        return characterLv
-    }
-}
+        return characterLv*/

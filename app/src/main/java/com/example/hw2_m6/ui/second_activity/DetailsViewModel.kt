@@ -5,11 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.example.hw2_m6.data.Repository
 import com.example.hw2_m6.data.Resource
 import com.example.hw2_m6.data.model.Character
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
-@HiltViewModel
-class DetailsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class DetailsViewModel (private val repository: Repository) : ViewModel() {
 
     fun getData(id: Int): LiveData<Resource<Character>> = repository.getCharacter(id)
 
